@@ -28,6 +28,7 @@ const resize = () => {
 
 export const createScene = async (canvas: HTMLCanvasElement, model: string) => {
 	renderer = new WebGLRenderer({ antialias: false, canvas });
+	renderer.setClearColor(0x211f1f);
 	try {
 		carModel = await addModel(model);
 		carModel.position.setY(-0.5);
