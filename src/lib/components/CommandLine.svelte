@@ -1,3 +1,86 @@
-<input type="text" />
+<script>
+    let isFocused = false;
+    const onFocus =()=>isFocused=true;
+	const onBlur =()=>isFocused=false;
 
-<style></style>
+</script>
+
+<div class="input-wrap">
+    <span>gast@autohaus: </span> 
+    
+    <div class="user-input">
+        <!-- <input type="text" />  -->
+        <span class="user-input-field" on:focus={onFocus} on:blur={onBlur} contenteditable="true">eingang</span>
+
+        {#if isFocused == false}
+            <div class="cursor-block"></div>
+        {/if}
+    </div>
+</div>
+
+
+
+<style>
+
+    /* span {
+        width: 170px;
+    } */
+
+    @keyframes fade { 
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+    .user-input-field {
+        background: transparent;
+        border: none;
+    }
+
+    .user-input-field:focus {
+        outline:none;
+    }
+
+    .user-input {
+        display: flex;
+    }
+
+    .cursor-block {
+        width: 12px;
+        height: 30px;
+        background-color:rgb(177, 253, 0);
+        animation: fade 1s infinite;
+
+    }
+
+    .input-wrap {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        font-family: VT323;
+        color: rgb(177, 253, 0);
+        font-size:30px;
+        text-shadow: 1px 1px 2px rgb(150, 167, 124), 0 0 1em rgb(150, 167, 124), 0 0 0.2em rgb(150, 167, 124);
+        position: relative;
+    }
+
+    input[type="text"]
+    {
+        background: transparent;
+        border: none;
+        width: 100%;
+        font-family: VT323;
+        color: rgb(177, 253, 0);
+        font-size:25px;
+        text-shadow: 1px 1px 2px rgb(150, 167, 124), 0 0 1em rgb(150, 167, 124), 0 0 0.2em rgb(150, 167, 124);
+    
+    }
+
+    textarea:focus, input:focus{
+        outline: none;
+    }
+</style>
