@@ -1,0 +1,17 @@
+[
+	{
+		"id": "740",
+		"brand": "Volvo",
+		"model": "740 GLT",
+		"stats": {
+			"horsepower": 155,
+			"engine": "B230F",
+			"seats": 5,
+			"wheelbase": 2770,
+			"weight": 1315,
+			"gears": 4,
+			"year": 1987,
+			"0-100": 12.5
+		}
+	}
+]
