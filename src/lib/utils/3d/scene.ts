@@ -2,7 +2,7 @@ import { PerspectiveCamera, Scene, WebGLRenderer, Object3D } from 'three';
 
 import { addModel } from './loader';
 
-const width = 600;
+const width = 800;
 const height = 400;
 
 const scene = new Scene();
