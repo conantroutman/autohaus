@@ -52,9 +52,10 @@
     .cursor-block {
         width: 12px;
         height: 30px;
-        background-color:rgb(177, 253, 0);
+        background-color: #00ff00;
         animation: fade 1s infinite;
-
+        margin-left: 5px;
+        box-shadow: 1px 1px 2px rgb(124, 167, 129), 0 0 1em rgb(124, 167, 129), 0 0 0.2em rgb(124, 167, 129);
     }
 
     .input-wrap {
@@ -62,9 +63,9 @@
         display: flex;
         align-items: center;
         font-family: VT323;
-        color: rgb(177, 253, 0);
+        color: #00ff00;
         font-size:30px;
-        text-shadow: 1px 1px 2px rgb(150, 167, 124), 0 0 1em rgb(150, 167, 124), 0 0 0.2em rgb(150, 167, 124);
+        text-shadow: 1px 1px 2px rgb(124, 167, 129), 0 0 1em rgb(124, 167, 129), 0 0 0.2em rgb(124, 167, 129);
         position: relative;
     }
 
@@ -74,9 +75,9 @@
         border: none;
         width: 100%;
         font-family: VT323;
-        color: rgb(177, 253, 0);
+        color: #00ff00;
         font-size:25px;
-        text-shadow: 1px 1px 2px rgb(150, 167, 124), 0 0 1em rgb(150, 167, 124), 0 0 0.2em rgb(150, 167, 124);
+        text-shadow: 1px 1px 2px rgb(124, 167, 129), 0 0 1em rgb(124, 167, 129), 0 0 0.2em rgb(124, 167, 129);
     
     }
 
