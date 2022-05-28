@@ -14,7 +14,7 @@ import Logo from "$lib/header/logo.svelte";
     <div id="autohaus-bildschirm"> 
         <img src="./img/scanlines.png" alt="Scanlinen" id="scanlinien" class="noselect">
         <img src="./img/bezel.png" alt="Lunette" id="lunette" class="noselect">
-        <!-- <img src="./img/ddr-logo.png" alt="ddr" class="autohaus-logotypen noselect">  -->
+        <img src="./img/ddr-logo.png" alt="ddr" class="autohaus-logotypen noselect"> 
     
         <div id="inhalt">
             <h1>Willkommen zu Autohaus... </h1> 
@@ -52,13 +52,16 @@ import Logo from "$lib/header/logo.svelte";
         top: 80px;
         z-index: 9;
         filter: grayscale(100%);
+        transform: rotateY(45deg);
+	    animation: rotateAnimation 1s linear infinite;
     }
 
     #autohaus-bildschirm {
         position: relative;
         width: 100%;
         height: 100%;
-        background: green;
+        background: rgb(33, 31, 31);
+        
         /* display: flex; */
         border-radius: 35px;
 
@@ -83,9 +86,9 @@ import Logo from "$lib/header/logo.svelte";
         height: 75%;
         font-family: VT323;
         padding: 100px;
-        color: rgb(177, 253, 0);
+        color: #00ff00;
         font-size:20px;
-        text-shadow: 1px 1px 2px rgb(150, 167, 124), 0 0 1em rgb(150, 167, 124), 0 0 0.2em rgb(150, 167, 124);
+        text-shadow: 1px 1px 2px rgb(124, 167, 129), 0 0 1em rgb(124, 167, 129), 0 0 0.2em rgb(124, 167, 129);
 
         display: flex;
         flex-direction: column;
@@ -94,5 +97,10 @@ import Logo from "$lib/header/logo.svelte";
 
     }
 
+
+    @keyframes rotateAnimation {
+	from {transform: rotateY(45deg);}
+	to {transform: rotateY(225deg);}
+}
 </style>
 
