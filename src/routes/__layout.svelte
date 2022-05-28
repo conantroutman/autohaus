@@ -1,5 +1,6 @@
 <script>
 
+import CommandHistory from "$lib/components/CommandHistory.svelte";
 import CommandLine from "$lib/components/CommandLine.svelte";
 import Header from "$lib/header/Header.svelte";
 
@@ -17,7 +18,7 @@ import Header from "$lib/header/Header.svelte";
             <slot />
 
             <div class="ausgang">
-
+                <CommandHistory />
             </div>
             <div class="ingang">
                 <CommandLine></CommandLine>

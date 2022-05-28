@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+    import { onMount } from 'svelte';
+    import { userCommands} from '$lib/stores'
+
 
 	enum Commands {
 		GO_BACK = 'zurück',
@@ -8,25 +11,52 @@
 
 	let isFocused = false;
 	let input: HTMLSpanElement;
+
 	const onFocus = () => (isFocused = true);
 	const onBlur = () => (isFocused = false);
 	const onChange = () => {
 		if (!input.textContent) return;
 		input.textContent = input.textContent?.toLocaleUpperCase();
 	};
+
 	const onKeypress = (e: KeyboardEvent) => {
-		console.log(e);
+        input.focus();
 		if (e.key !== 'Enter') return;
+
+        userCommands.update((commands: string[]) => {
+            if (!input.textContent) return commands
+            return [...commands, input.textContent]
+        })
+        console.log(userCommands);
 
 		switch (input.textContent) {
 			case Commands.GO_BACK:
 				goto('/');
+                input.textContent = '';
 				return;
 
 			default:
 				goto(`/auto/${input.textContent}`);
 		}
+        input.textContent = '';
+
 	};
+
+  
+
+    onMount(async () => {
+        document.onclick = function(){
+        input.textContent = '';
+        input.focus();
+
+        }
+	});
+
+    onMount(() => input.focus())
+
+
+
+ 
 </script>
 
 <div class="input-wrap">
@@ -35,6 +65,7 @@
 	<div class="user-input">
 		<span
 			class="user-input-field"
+            id="user-commandline-input"
 			on:focus={onFocus}
 			on:blur={onBlur}
 			on:keypress={onKeypress}
@@ -67,7 +98,8 @@
 	.user-input-field {
 		background: transparent;
 		border: none;
-        caret-color: transparent;        
+        caret-color: transparent;     
+        max-height: 30px;   
 	}
 
 	.user-input-field:focus {
