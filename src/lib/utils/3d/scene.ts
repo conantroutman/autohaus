@@ -1,13 +1,14 @@
-import { PerspectiveCamera, Scene, WebGLRenderer, Object3D } from 'three';
+import { PerspectiveCamera, Scene, WebGLRenderer, Object3D, Vector2 } from 'three';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 
 import { addModel } from './loader';
 
-const width = 800;
-const height = 500;
-
 const scene = new Scene();
-const camera = new PerspectiveCamera(45, width / height, 0.1, 1000);
+const camera = new PerspectiveCamera(45, 1, 0.1, 1000);
 let renderer: WebGLRenderer;
+let composer: EffectComposer;
 let carModel: Object3D;
 camera.position.z = 5;
 
@@ -21,9 +22,28 @@ const animate = () => {
 
 const resize = () => {
 	if (!renderer) return;
+
+	const canvas = renderer.domElement;
+	const width = canvas.clientWidth;
+	const height = canvas.clientHeight;
+
 	renderer.setSize(width, height);
 	camera.aspect = width / height;
 	camera.updateProjectionMatrix();
+};
+
+const addBloom = () => {
+	if (!renderer) return;
+
+	const canvas = renderer.domElement;
+	const width = canvas.clientWidth;
+	const height = canvas.clientHeight;
+
+	const renderScene = new RenderPass(scene, camera);
+	const bloomPass = new UnrealBloomPass(new Vector2(width, height), 1.5, 0.4, 0.85);
+	composer = new EffectComposer(renderer);
+	composer.addPass(renderScene);
+	composer.addPass(bloomPass);
 };
 
 export const createScene = async (canvas: HTMLCanvasElement, model: string) => {
@@ -31,8 +51,10 @@ export const createScene = async (canvas: HTMLCanvasElement, model: string) => {
 	renderer.setClearColor(0x211f1f);
 	try {
 		carModel = await addModel(model);
-		carModel.position.setY(-0.5);
+		carModel.position.setY(-0.6);
 		scene.add(carModel);
+
+		//addBloom();
 
 		resize();
 		animate();

@@ -20,7 +20,7 @@
 	span {
 		height: 100%;
 		width: 100%;
-		outline: 1px solid white;
+		outline: var(--border-thickness) solid var(--primary-color);
 		padding: 10px;
 	}
 </style>

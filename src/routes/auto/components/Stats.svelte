@@ -10,9 +10,11 @@
 	<ul>
 		<Stat label="Ursprung" value={stats.country} />
 		<Stat label="Jahr" value={stats.year} />
+		<Stat label="Sitze" value={stats.seats} />
 		<Stat label="Motor" value={stats.engine} />
 		<Stat label="Pferdkraften" value={stats.horsepower} />
 		<Stat label="Gewicht (kg)" value={stats.weight} />
+		<Stat label="Radstand" value={stats.wheelbase} />
 		<Stat label="Schalter" value={stats.gears} />
 		<Stat label="0-100" value={stats['0-100']} />
 	</ul>
@@ -25,7 +27,7 @@
 	}
 
 	h1 {
-		outline: 1px solid white;
+		outline: var(--border-thickness) solid var(--primary-color);
 		margin: 0;
 		padding: 10px;
 		font-size: 2em;
@@ -36,6 +38,8 @@
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		outline: 1px solid white;
+		outline: var(--border-thickness) solid var(--primary-color);
+		/* box-shadow: var(--glow);
+		box-shadow: inset var(--glow); */
 	}
 </style>

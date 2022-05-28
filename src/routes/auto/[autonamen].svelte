@@ -20,13 +20,6 @@
 		width: 100%;
 		display: grid;
 		grid-template-columns: 3fr 1fr;
-	}
-
-	h1 {
-		width: 100%;
-		outline: 1px solid white;
-		margin: 0;
-		padding: 10px;
-		box-sizing: border-box;
+		gap: 10px;
 	}
 </style>

@@ -15,11 +15,15 @@
 	});
 </script>
 
-<canvas bind:this={canvas} />
+<div>
+	<canvas bind:this={canvas} />
+</div>
 
 <style>
 	canvas {
-		outline: 1px solid white;
+		outline: var(--border-thickness) solid var(--primary-color);
 		width: 100%;
+		height: 100%;
+		/* box-shadow: var(--glow); */
 	}
 </style>
