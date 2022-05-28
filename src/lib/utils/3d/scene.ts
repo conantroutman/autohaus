@@ -15,7 +15,7 @@ const animate = () => {
 	if (!renderer) return;
 	if (!carModel) return;
 	requestAnimationFrame(animate);
-	carModel.rotation.y += 0.01;
+	carModel.rotation.y += 0.007;
 	renderer.render(scene, camera);
 };
 
@@ -39,6 +39,11 @@ export const createScene = async (canvas: HTMLCanvasElement, model: string) => {
 	} catch (error) {
 		console.error(error.message);
 	}
+};
+
+export const destroyScene = () => {
+	scene.clear();
+	renderer.dispose();
 };
 
 window.addEventListener('resize', resize);

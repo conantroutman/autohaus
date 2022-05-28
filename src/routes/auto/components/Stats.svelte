@@ -1,11 +1,12 @@
 <script lang="ts">
 	import Stat from './Stat.svelte';
 
-	export let stats: any;
+	export let data: any;
+	const { brand, model, stats } = data;
 </script>
 
 <aside>
-	<h1>Statistik</h1>
+	<h1>{brand} {model}</h1>
 	<ul>
 		<Stat label="Ursprung" value={stats.country} />
 		<Stat label="Jahr" value={stats.year} />

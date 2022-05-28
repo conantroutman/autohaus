@@ -11,11 +11,8 @@
 </script>
 
 <main>
-	<div>
-		<h1>{autoData?.brand} {autoData?.model}</h1>
-		<Canvas3D {model} />
-	</div>
-	<Stats stats={autoData?.stats} />
+	<Canvas3D {model} />
+	<Stats data={autoData} />
 </main>
 
 <style>
