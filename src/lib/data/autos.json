@@ -14,5 +14,21 @@
 			"0-100": 12.5,
 			"country": "Schweden"
 		}
+	},
+	{
+		"id": "P601",
+		"brand": "Trabant",
+		"model": "P601",
+		"stats": {
+			"horsepower": 25,
+			"engine": "P66 Zweitakt",
+			"seats": 4,
+			"wheelbase": 2020,
+			"weight": 615,
+			"gears": 4,
+			"year": 1974,
+			"0-100": "nicht",
+			"country": "DDR"
+		}
 	}
 ]

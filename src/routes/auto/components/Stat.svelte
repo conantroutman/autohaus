@@ -12,9 +12,9 @@
 	li {
 		margin: none;
 		width: 100%;
-		display: flex;
+		display: table-row;
 		flex-direction: row;
-		justify-content: space-between;
+		display: flex;
 	}
 
 	span {

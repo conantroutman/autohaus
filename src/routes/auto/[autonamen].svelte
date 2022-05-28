@@ -19,7 +19,7 @@
 	main {
 		width: 100%;
 		display: grid;
-		grid-template-columns: 3fr 1fr;
+		grid-template-columns: 2.5fr 1.5fr;
 		gap: 10px;
 	}
 </style>

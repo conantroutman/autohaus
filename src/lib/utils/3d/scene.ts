@@ -6,7 +6,7 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { addModel } from './loader';
 
 const scene = new Scene();
-const camera = new PerspectiveCamera(45, 1, 0.1, 1000);
+const camera = new PerspectiveCamera(55, 1, 0.1, 1000);
 let renderer: WebGLRenderer;
 let composer: EffectComposer;
 let carModel: Object3D;
