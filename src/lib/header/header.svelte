@@ -1,11 +1,18 @@
-<header>            
-    <h1>Willkommen zu Autohaus... </h1> 
+<script>
+	import DDRLogo from '$lib/header/DDRLogo.svelte';
+</script>
+
+<header>
+	<h1>Willkommen zu Autohaus...</h1>
+	<DDRLogo />
 </header>
 
-
 <style>
-
-    header {
-        z-index: 8;
-    }
+	header {
+		z-index: 8;
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
 </style>
