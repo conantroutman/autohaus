@@ -3,10 +3,10 @@ import { PerspectiveCamera, Scene, WebGLRenderer, Object3D } from 'three';
 import { addModel } from './loader';
 
 const width = 800;
-const height = 400;
+const height = 500;
 
 const scene = new Scene();
-const camera = new PerspectiveCamera(35, width / height, 0.1, 1000);
+const camera = new PerspectiveCamera(45, width / height, 0.1, 1000);
 let renderer: WebGLRenderer;
 let carModel: Object3D;
 camera.position.z = 5;
