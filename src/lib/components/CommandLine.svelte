@@ -1,6 +1,10 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 
+	enum Commands {
+		GO_BACK = 'zurück'
+	}
+
 	let isFocused = false;
 	let input: HTMLSpanElement;
 	const onFocus = () => (isFocused = true);
@@ -8,6 +12,11 @@
 	const onKeypress = (e: KeyboardEvent) => {
 		console.log(e);
 		if (e.key !== 'Enter') return;
+
+		if (input.textContent === Commands.GO_BACK) {
+			goto('/');
+			return;
+		}
 
 		goto(`/auto/${input.textContent}`);
 	};
