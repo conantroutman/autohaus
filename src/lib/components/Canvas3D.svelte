@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { createScene } from '$lib/utils/3d/scene';
+	import { onDestroy, onMount } from 'svelte';
+	import { createScene, destroyScene } from '$lib/utils/3d/scene';
 
 	export let model: string;
 
@@ -9,6 +9,21 @@
 	onMount(() => {
 		createScene(canvas, model);
 	});
+
+	onDestroy(() => {
+		destroyScene();
+	});
 </script>
 
-<canvas bind:this={canvas} />
+<div>
+	<canvas bind:this={canvas} />
+</div>
+
+<style>
+	canvas {
+		outline: var(--border-thickness) solid var(--primary-color);
+		width: 100%;
+		height: 100%;
+		/* box-shadow: var(--glow); */
+	}
+</style>
