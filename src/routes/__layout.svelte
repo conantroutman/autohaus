@@ -57,7 +57,7 @@ import Header from "$lib/header/Header.svelte";
         position: relative;
         width: 100%;
         height: 100%;
-        background: rgb(33, 31, 31);
+        background: #211f1f;
         
         /* display: flex; */
         border-radius: 35px;
