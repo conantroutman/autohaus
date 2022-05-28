@@ -17,19 +17,18 @@
 	<span>gast@autohaus: </span>
 
 	<div class="user-input">
-		<!-- <input type="text" />  -->
 		<span
 			class="user-input-field"
 			on:focus={onFocus}
 			on:blur={onBlur}
 			on:keypress={onKeypress}
 			contenteditable="true"
-			bind:this={input}>eingang</span
+			bind:this={input}
+            autofocus
+            spellcheck="false"></span
 		>
 
-		{#if isFocused == false}
-			<div class="cursor-block" />
-		{/if}
+        <div class="cursor-block" />
 	</div>
 </div>
 
@@ -51,6 +50,7 @@
 	.user-input-field {
 		background: transparent;
 		border: none;
+        caret-color: transparent;        
 	}
 
 	.user-input-field:focus {
@@ -98,4 +98,5 @@
 	input:focus {
 		outline: none;
 	}
+    
 </style>
