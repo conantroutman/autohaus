@@ -2,23 +2,30 @@
 	import { goto } from '$app/navigation';
 
 	enum Commands {
-		GO_BACK = 'zurück'
+		GO_BACK = 'zurück',
+		HELP = 'hilfe'
 	}
 
 	let isFocused = false;
 	let input: HTMLSpanElement;
 	const onFocus = () => (isFocused = true);
 	const onBlur = () => (isFocused = false);
+	const onChange = () => {
+		if (!input.textContent) return;
+		input.textContent = input.textContent?.toLocaleUpperCase();
+	};
 	const onKeypress = (e: KeyboardEvent) => {
 		console.log(e);
 		if (e.key !== 'Enter') return;
 
-		if (input.textContent === Commands.GO_BACK) {
-			goto('/');
-			return;
-		}
+		switch (input.textContent) {
+			case Commands.GO_BACK:
+				goto('/');
+				return;
 
-		goto(`/auto/${input.textContent}`);
+			default:
+				goto(`/auto/${input.textContent}`);
+		}
 	};
 </script>
 
@@ -32,6 +39,7 @@
 			on:focus={onFocus}
 			on:blur={onBlur}
 			on:keypress={onKeypress}
+			on:change={onChange}
 			contenteditable="true"
 			bind:this={input}>eingang</span
 		>
