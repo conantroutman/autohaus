@@ -6,7 +6,9 @@
 
 	enum Commands {
 		GO_BACK = 'zurück',
-		HELP = 'hilfe'
+		HELP = 'hilfe',
+        DISPLAY_AUTOS = 'autos',
+        TEST = 'test'
 	}
 
 	let isFocused = false;
@@ -23,6 +25,8 @@
         input.focus();
 		if (e.key !== 'Enter') return;
 
+        e.preventDefault();
+
         userCommands.update((commands: string[]) => {
             if (!input.textContent) return commands
             return [...commands, input.textContent]
@@ -35,13 +39,38 @@
                 input.textContent = '';
 				return;
 
+            case Commands.DISPLAY_AUTOS:
+                goto('/autos');
+                input.textContent = '';
+                return;
+            
+            case Commands.TEST:
+                logCommand('Testbefehl');
+                input.textContent = '';
+                return;
+
+            case Commands.HELP:
+                goto('/hilfe');
+                input.textContent = '';
+                return;
+
 			default:
-				goto(`/auto/${input.textContent}`);
+                logCommand('Fehler: unbekannte oder unvollständige Befehlszeile.');
+                logCommand('Verwenden Sie "Hilfe" für die richtigen Befehle');
+                return;
+          
 		}
-        input.textContent = '';
+
 
 	};
 
+    function logCommand(command:any) {
+        userCommands.update((commands: string[]) => {
+            input.textContent = '';
+            return [...commands, command]
+        })
+        
+    }
   
 
     onMount(async () => {
@@ -69,7 +98,6 @@
 			on:focus={onFocus}
 			on:blur={onBlur}
 			on:keypress={onKeypress}
-			on:change={onChange}
 			contenteditable="true"
 			bind:this={input}
             autofocus

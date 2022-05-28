@@ -5,12 +5,13 @@
 
     userCommands.subscribe(value => commands = value)
 
+
 </script>
 
 <ul>
-    {#each commands as command}
+    {#each commands.slice(-10) as command}
     <li>
-        {command}
+        {'> ' + command}
     </li>
     {/each}
 </ul>
@@ -19,5 +20,6 @@
     ul {
         list-style: none;
         padding: 0;
+        font-size: 30px;
     }
 </style>

@@ -13,10 +13,14 @@
 			<Header />
 			<slot />
 
-			<!-- <div class="ausgang">
-                <CommandHistory />
-            </div> -->
+			<div class="ausgang">
+            </div>
 			<div class="ingang">
+
+                <div class="command-history">
+                    <CommandHistory />
+                </div>
+
 				<CommandLine />
 			</div>
 		</div>
@@ -24,6 +28,13 @@
 </div>
 
 <style>
+
+    .command-history {
+        padding-bottom: 50px;
+        overflow-y: hidden;
+        display: flex;
+        flex-direction: column-reverse;
+    }
 	.autohaus-wrapper {
 		width: 100%;
 		height: 100%;
