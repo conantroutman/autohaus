@@ -5,3 +5,10 @@ Diese Befehle können zum Navigieren verwendet werden
     <li>hielfen</li>
     <li>zurück</li>
   </ul>
+
+
+  <style>
+        ul {
+        list-style: none;
+    }
+  </style>

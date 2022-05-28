@@ -1,20 +1,23 @@
 <script lang='ts'>
     import { userCommands } from '$lib/stores'
+    import { page } from '$app/stores';
 
     let commands: string[] = []
 
-    userCommands.subscribe(value => commands = value)
-
+    userCommands.subscribe(value => commands = value) 
 
 </script>
 
-<ul>
-    {#each commands.slice(-10) as command}
-    <li>
-        {'> ' + command}
-    </li>
-    {/each}
-</ul>
+{#if $page.routeId != 'auto/[autonamen]'}
+
+    <ul>
+        {#each commands.slice(-10) as command}
+        <li>
+            {'> ' + command}
+        </li>
+        {/each}
+    </ul>
+{/if}
 
 <style>
     ul {

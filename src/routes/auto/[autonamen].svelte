@@ -3,7 +3,7 @@
 
 	import Canvas3D from '$lib/components/Canvas3D.svelte';
 	import { page } from '$app/stores';
-	import data from './autos.json';
+	import data from '../../lib/data/autos.json';
 	import Stats from './components/Stats.svelte';
 
 	const model = $page.params.autonamen;

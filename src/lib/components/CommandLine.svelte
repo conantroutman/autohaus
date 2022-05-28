@@ -2,24 +2,34 @@
 	import { goto } from '$app/navigation';
     import { onMount } from 'svelte';
     import { userCommands} from '$lib/stores'
+    import { page } from '$app/stores';
+    import carsData from '../../lib/data/autos.json';
 
 
 	enum Commands {
 		GO_BACK = 'zurück',
 		HELP = 'hilfe',
         DISPLAY_AUTOS = 'autos',
-        TEST = 'test'
+        TEST = 'test',
+        CLEAR = 'klar'
 	}
 
 	let isFocused = false;
-	let input: HTMLSpanElement;
+	let input: any;
 
 	const onFocus = () => (isFocused = true);
-	const onBlur = () => (isFocused = false);
+	const onBlur = () => (
+        input.focus()
+    );
 	const onChange = () => {
 		if (!input.textContent) return;
 		input.textContent = input.textContent?.toLocaleUpperCase();
 	};
+
+
+    function isNumeric(val:any) {
+        return /^-?\d+$/.test(val);
+    }
 
 	const onKeypress = (e: KeyboardEvent) => {
         input.focus();
@@ -31,7 +41,23 @@
             if (!input.textContent) return commands
             return [...commands, input.textContent]
         })
-        console.log(userCommands);
+
+        if (isNumeric(input.textContent) && $page.routeId === 'autos') {
+            
+            
+
+            if (carsData[parseInt(input.textContent)-1]) {
+                let carId = carsData[parseInt(input.textContent)-1].id;
+                goto('/auto/'+carId);
+            } else {
+                logCommand('Das Auto, das Sie auswählen möchten, existiert nicht');
+            }
+
+            input.textContent = '';
+            return;
+
+        }
+
 
 		switch (input.textContent) {
 			case Commands.GO_BACK:
@@ -54,6 +80,12 @@
                 input.textContent = '';
                 return;
 
+            case Commands.CLEAR:
+                userCommands.set([]);
+                input.textContent = '';
+                
+                return;
+
 			default:
                 logCommand('Fehler: unbekannte oder unvollständige Befehlszeile.');
                 logCommand('Verwenden Sie "Hilfe" für die richtigen Befehle');
@@ -69,7 +101,6 @@
             input.textContent = '';
             return [...commands, command]
         })
-        
     }
   
 
@@ -82,9 +113,6 @@
 	});
 
     onMount(() => input.focus())
-
-
-
  
 </script>
 
