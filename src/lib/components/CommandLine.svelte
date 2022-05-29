@@ -78,6 +78,10 @@
 
 				return;
 
+			case 'sudo':
+				logCommand('HALT! DAS IST VERBOTEN!');
+				return;
+
 			default:
 				logCommand('Fehler: unbekannte oder unvollständige Befehlszeile.');
 				logCommand('Verwenden Sie "Hilfe" für die richtigen Befehle');
