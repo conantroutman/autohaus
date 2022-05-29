@@ -15,4 +15,9 @@
 		flex-direction: row;
 		justify-content: space-between;
 	}
+
+	h1 {
+		font-size: 3em;
+		margin: 0;
+	}
 </style>
