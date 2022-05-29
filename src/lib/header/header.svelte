@@ -3,7 +3,7 @@
 </script>
 
 <header>
-	<h1>Willkommen zu Autohaus...</h1>
+	<h1>Autohaus</h1>
 	<DDRLogo />
 </header>
 
