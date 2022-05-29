@@ -17,8 +17,8 @@
 	},
 	{
 		"id": "trabant",
-		"brand": "Trabant",
-		"model": "P601",
+		"brand": "Sachsenring",
+		"model": "Trabant P601",
 		"stats": {
 			"horsepower": 25,
 			"engine": "P66 Zweitakt",
