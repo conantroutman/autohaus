@@ -1,7 +1,17 @@
 <script>
 	import CommandHistory from '$lib/components/CommandHistory.svelte';
 	import CommandLine from '$lib/components/CommandLine.svelte';
+	import Splash from '$lib/components/Splash.svelte';
 	import Header from '$lib/header/Header.svelte';
+	import { onMount } from 'svelte';
+
+	let showSplash = true;
+
+	onMount(() => {
+		setTimeout(() => {
+			showSplash = false;
+		}, 3000);
+	});
 </script>
 
 <div class="autohaus-wrapper">
@@ -10,31 +20,32 @@
 		<img src="./img/bezel.png" alt="Lunette" id="lunette" class="noselect" />
 
 		<div id="inhalt">
-			<Header />
-			<slot />
+			{#if showSplash}
+				<Splash />
+			{:else}
+				<Header />
+				<slot />
 
-			<div class="ausgang">
-            </div>
-			<div class="ingang">
+				<div class="ausgang" />
+				<div class="ingang">
+					<div class="command-history">
+						<CommandHistory />
+					</div>
 
-                <div class="command-history">
-                    <CommandHistory />
-                </div>
-
-				<CommandLine />
-			</div>
+					<CommandLine />
+				</div>
+			{/if}
 		</div>
 	</div>
 </div>
 
 <style>
-
-    .command-history {
-        padding-bottom: 50px;
-        overflow-y: hidden;
-        display: flex;
-        flex-direction: column-reverse;
-    }
+	.command-history {
+		padding-bottom: 50px;
+		overflow-y: hidden;
+		display: flex;
+		flex-direction: column-reverse;
+	}
 	.autohaus-wrapper {
 		width: 100%;
 		height: 100%;
