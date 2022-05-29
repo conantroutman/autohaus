@@ -15,6 +15,10 @@ body {
 	text-shadow: var(--glow);
 }
 
+p {
+	font-size: 1.5em;
+}
+
 .svelte-body {
 	height: 100%;
 }
