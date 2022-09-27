@@ -12,7 +12,12 @@ export const addModel = (model: string) => {
 				gltfScene.traverse((object) => {
 					// @ts-ignore
 					if (object.isObject3D)
-						object.material = new MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
+						object.material = new MeshBasicMaterial({
+							color: 0x00ff00,
+							wireframe: true,
+							wireframeLinecap: 'square',
+							wireframeLinewidth: 2
+						});
 				});
 
 				resolve(gltf.scene);
