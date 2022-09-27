@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import carsData from '../lib/data/autos.json';
 </script>
 
